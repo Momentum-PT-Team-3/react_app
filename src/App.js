@@ -1,17 +1,23 @@
-import Todo from './components/Todo'
-
+import { Route, Routes } from "react-router-dom"; //will help define paths in url and which components to load- switch specifies only ONE at a time
+import AllMeetupsPage from "./pages/AllMeetups";
+import NewMeetupPage from "./pages/NewMeetup";
+import FavoritesPage from "./pages/Favorites";
+import MainNavigation from "./components/layout/MainNavigation"
 
 function App() {
-  //only jsx content returned by the function will render
   return (
     <div>
-      <h1>My Todos</h1>
-      <Todo text='learn' /> 
-      <Todo text='master' /> 
-      <Todo text='explore' /> 
-
+      <MainNavigation />
+      <Routes>
+        <Route path='/' element={<AllMeetupsPage />}/>
+        
+        <Route path='/new-meetup' element={<NewMeetupPage />}/>
+        
+        <Route path='/favorites' element={<FavoritesPage />}/>
+        
+      </Routes>
     </div>
-  ); //jsx code- html code within js file
+  );
 }
 
 export default App;
